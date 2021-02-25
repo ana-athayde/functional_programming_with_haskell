@@ -91,3 +91,41 @@ zip'' xs ys = (x,y | x <- xs, y <- ys)
 -- fizzBuzz'
 -- [(1,"1"),(2,"2"),(3,"Fizz"),(4,"4"),(5,"Buzz"),(6,"Fizz"),(7,"7"),(8,"8"),(9,"Fizz"),(10,"Buzz")]
 -- interpretar com zip
+
+-- Ex1:
+fizzBuzz [] = []
+fizzBuzz (x:xs) = if rem3 && rem5 then "FizzBuzz" : r
+    else if rem3 then "Fizz" : r
+    else if rem5 then "Buzz" : r
+    else (show x) : r
+  where r = fizzBuzz xs
+        rem3 = rem x 3 == 0
+        rem5 = rem x 5 == 0
+{-
+zip' [] [] = []
+zip' [] _ = []
+zip' _ [] = []
+zip' (x:xs) (y:ys) = (x,y) : zip' xs ys
+
+Cenário1: ['a','b','c'] [1,2,3]
+    ('a', 1) : zip' ['b','c'] [2,3]
+        ('b',2) : zip' ['c'] [3]
+            ('c',3) : zip' [] []
+                [] => ('a', 1) : ('b',2) : ('c',3) : [] => [('a', 1) , ('b',2) , ('c',3)]
+
+Cenário2: ['a','b','c'] [1,2]
+    ('a', 1) : zip' ['b','c'] [2]
+        ('b',2) : zip' ['c'] []
+            []
+
+-}
+
+-- f xs = [x |x <- xs, x > 10, rem x 2 == 0]
+
+f = zip' [1..10]["a".."z"]
+
+-- padrões
+-- f []
+-- f (x:[]) se quiser um padrao especifico para o ultimo elemento da lista
+-- f (x:xs)
+-- [1]
