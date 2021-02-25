@@ -48,7 +48,6 @@ dobro' xs = [2*x | x <- xs]
 -- maiores' xs n = [b | b <- xs, b >= n]
 
 menoresMaiores' xs n ( [a | a <- xs, a < n], [b | b <- xs, b >= n] )
-[4:13 PM] ADELAINE FRANCIELE GELAIN
     
 {- Declare uma função que receba como parâmetro uma String e retorne uma dupla de 
 Strings, a primeira String deve conter as letras maiúsculas e a segunda as letras 
